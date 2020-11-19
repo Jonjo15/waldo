@@ -1,12 +1,14 @@
 import React from "react"
-import useFirestore from "../hooks/useFirestore"
+// import useFirestore from "../hooks/useFirestore"
 // import "../waldo/jpg"
 // import {projectStorage} from "../firebase/config.js"
-const ImageContainer = () => {
-    const {url} = useFirestore()
+const ImageContainer = ({url}) => {
+    // const {url} = useFirestore()
     // let imageRef;
+    // const [url, setUrl] = useState(null)
     // (async() => {
-    //    imageRef = await projectStorage.ref().child("waldo.jpg").getDownloadURL()
+    //   let url = await projectStorage.ref().child("waldo.jpg").getDownloadURL()
+    //   setUrl(url)  
     // })()
     
     return (
