@@ -1,22 +1,34 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 // import useFirestore from "../hooks/useFirestore"
 // import "../waldo/jpg"
 // import {projectStorage} from "../firebase/config.js"
 const ImageContainer = ({url}) => {
     const [x, setX] = useState(null)
     const [y, setY] = useState(null)
+    const [clicked, setClicked] = useState(null)
     const [selected, setSelected] = useState(null)
     const handleClick = (e) => {
         // if (e.target.getBoundingClientRect())
-        setX(e.pageX -35)
-        setY(e.pageY -35)
+        if (clicked) {
+            setX(null)
+            setY(null)
+            setClicked(null)
+        }
+        else {
+            setX(e.pageX -35)
+            setY(e.pageY -35)
+            setClicked(true)
+        }
+        
         // console.log(e.pageY, e.pageX)
        
     }
     const handleChange = (e) => {
         setSelected(e.target.value)
     }
-    
+    useEffect(() => {
+        console.log(selected, x, y)
+    }, [selected])
     return (
         <div className="image-container" >
             {url && <img onClick={handleClick} src={url}alt="find waldo"/>}

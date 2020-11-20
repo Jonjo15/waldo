@@ -24,7 +24,7 @@ var firebaseConfig = {
   const projectFirestore = firebase.firestore()
   const projectStorage = firebase.storage()
   const storageRef = projectStorage.ref()
-  const imageRef = storageRef.child("waldo.jpg")
+  const imageRef = storageRef.child("wally.png")
   // .getDownloadURL().then(function(url) {
   //   projectFirestore.collection("images").add({url})
   // })
