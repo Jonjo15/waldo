@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from "react"
+import useFirestore from "../hooks/useFirestore"
 // import useFirestore from "../hooks/useFirestore"
 // import "../waldo/jpg"
 // import {projectStorage} from "../firebase/config.js"
 const ImageContainer = ({url}) => {
     const [x, setX] = useState(null)
     const [y, setY] = useState(null)
+    // const waldoCords = useFirestore("Waldo");
     const [clicked, setClicked] = useState(null)
     const [selected, setSelected] = useState(null)
     const handleClick = (e) => {
@@ -26,9 +28,10 @@ const ImageContainer = ({url}) => {
     const handleChange = (e) => {
         setSelected(e.target.value)
     }
-    useEffect(() => {
-        console.log(selected, x, y)
-    }, [selected])
+    // useEffect(() => {
+    //     console.log(waldoCords.charData)
+    // })
+    
     return (
         <div className="image-container" >
             {url && <img onClick={handleClick} src={url}alt="find waldo"/>}
@@ -42,6 +45,7 @@ const ImageContainer = ({url}) => {
                      <option value="Wizard">Wizard</option>
                  </select>
             </div>}
+            <p>{selected}</p>
         </div>
     )
 }

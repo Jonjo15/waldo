@@ -17,7 +17,10 @@ code {
 .header {
   text-align: center;
 }
-.search-box {
+.search-box,
+.waldo,
+.odlaw,
+.wizard {
   position: absolute;
   border: 3px solid black;
   width: 70px;
@@ -30,4 +33,8 @@ code {
 }
 .image-container {
   margin: 30px auto;
+}
+.waldo {
+  left: 758px;
+  top: 387px;
 }
