@@ -16,7 +16,7 @@ function App() {
       {!url && <button onClick={test}>Start Game</button>}
       {/* <ImageContainer url={url}/> */}
       {url && <ImageContainer url={url}/>}
-      <div className="search-box"></div>
+      
       
     </div>
   );

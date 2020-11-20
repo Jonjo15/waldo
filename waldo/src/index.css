@@ -10,11 +10,24 @@ code {
     monospace;
 }
 
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.header {
+  text-align: center;
+}
 .search-box {
   position: absolute;
-  left: 200px;
-  top: 300px;
-  border: 1px solid black;
-  width: 40px;
-  height: 40px;
+  border: 3px solid black;
+  width: 70px;
+  height: 70px;
+}
+.select-char {
+  position: absolute;
+  left: 72px;
+  top: -2px;
+}
+.image-container {
+  margin: 30px auto;
 }
