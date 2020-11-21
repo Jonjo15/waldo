@@ -1,12 +1,15 @@
-import React, {useState, useEffect} from "react"
-import useFirestore from "../hooks/useFirestore"
+import React, {useState} from "react"
+// import useFirestore from "../hooks/useFirestore"
+// import {getValidDelta} from "../functions/getValidDelta"
+
 // import useFirestore from "../hooks/useFirestore"
 // import "../waldo/jpg"
 // import {projectStorage} from "../firebase/config.js"
 const ImageContainer = ({url}) => {
     const [x, setX] = useState(null)
     const [y, setY] = useState(null)
-    // const waldoCords = useFirestore("Waldo");
+    // const waldoCoords = useFirestore("Waldo")
+    // const [correctWaldo, setCorrectWaldo] = useState(null)
     const [clicked, setClicked] = useState(null)
     const [selected, setSelected] = useState(null)
     const handleClick = (e) => {
@@ -27,11 +30,23 @@ const ImageContainer = ({url}) => {
     }
     const handleChange = (e) => {
         setSelected(e.target.value)
+        // console.log(correctWaldo)
+        // const coords = useFirestore("")
     }
     // useEffect(() => {
     //     console.log(waldoCords.charData)
     // })
-    
+    // useEffect(() => {
+    //     if (correctWaldo) {
+    //         if (correctWaldo.X.includes(x) && correctWaldo.Y.includes(y)) {
+    //         console.log("success")
+    //     }
+    //     }
+        
+    // }, [selected, correctWaldo.X, correctWaldo.Y, x, y])
+    // useEffect(() => {
+    //     setCorrectWaldo(getValidDelta(waldoCoords))
+    // }, [waldoCoords])
     return (
         <div className="image-container" >
             {url && <img onClick={handleClick} src={url}alt="find waldo"/>}

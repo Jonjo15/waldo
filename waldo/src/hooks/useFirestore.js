@@ -1,11 +1,12 @@
 import {useState, useEffect} from "react"
 import {projectFirestore} from "../firebase/config"
-// import {getValidDelta} from "../functions/getValidDelta"
+import {getValidDelta} from "../functions/getValidDelta"
 
 const useFirestore = (char) => {
     // const [imageUrl, setImageUrl] = useState(null)
     const [charData, setCharData] = useState([]);
-
+    const [delta, setDelta] = useState(null);
+    // const [deltaY, setDeltaY] = useState(null)
     useEffect(() => {
 
         const charRef = projectFirestore.collection("characters");
@@ -14,13 +15,14 @@ const useFirestore = (char) => {
             snap.forEach(doc => {
                 if (doc.id === char) {
                     setCharData(doc.data())
+                    setDelta(getValidDelta(doc.data()))
                 }
             })
         })
         // projectFirestore.collection("images").add({url})
         
     }, [char])
-    return {charData}
+    return {charData, delta}
 }
 
 export default useFirestore
