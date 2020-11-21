@@ -41,7 +41,7 @@ function App() {
       <Header />
       {!url && <button onClick={start}>Start Game</button>}
       {/* <ImageContainer url={url}/> */}
-      {url && <ImageContainer waldoData={waldoData} odlawData={odlawData} wizardData={wizardData} setWaldoFound={setWaldoFound} setOdlawFound={setOdlawFound} setWizardFound={setWizardFound} url={url}/>}
+      {url && <ImageContainer gameOver={gameOver} waldoData={waldoData} odlawData={odlawData} wizardData={wizardData} setWaldoFound={setWaldoFound} setOdlawFound={setOdlawFound} setWizardFound={setWizardFound} url={url}/>}
       
       {waldoFound && <div className="waldo"></div> }
       {odlawFound && <div className="odlaw"></div> }
