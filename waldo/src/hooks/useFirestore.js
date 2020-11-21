@@ -15,7 +15,8 @@ const useFirestore = (char) => {
             snap.forEach(doc => {
                 if (doc.id === char) {
                     setCharData(doc.data())
-                    setDelta(getValidDelta(doc.data()))
+                    let delta = getValidDelta(doc.data())
+                    setDelta(delta)
                 }
             })
         })
