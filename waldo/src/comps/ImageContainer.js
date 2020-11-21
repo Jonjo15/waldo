@@ -32,23 +32,40 @@ const ImageContainer = ({url, waldoData, odlawData, wizardData, setWaldoFound, s
         setSelected(e.target.value)
         if (e.target.value === "Waldo") {
             if(waldoData.delta.validXGuesses.includes(x) && waldoData.delta.validYGuesses.includes(y)) {
+                
                 alert("YOU FOUND WALDO")
+                setX(null)
+                setY(null)
+                setClicked(null)
+                setSelected(null)
+                setWaldoFound(true)
             }
             else {
                 alert("YOU didnt find waldo")
             }
         }
-        if (selected === "Odlaw") {
+        if (e.target.value === "Odlaw") {
             if(odlawData.delta.validXGuesses.includes(x) && odlawData.delta.validYGuesses.includes(y)) {
+
                 alert("YOU FOUND ODLAW")
+                setX(null)
+                setY(null)
+                setClicked(null)
+                setSelected(null)
+                setOdlawFound(true)
             }
             else {
                 alert("YOU didnt find ODLAW")
             }
         }
-        if (selected === "Wizard") {
+        if (e.target.value === "Wizard") {
             if(wizardData.delta.validXGuesses.includes(x) && wizardData.delta.validYGuesses.includes(y)) {
                 alert("YOU FOUND Wizard")
+                setX(null)
+                setY(null)
+                setClicked(null)
+                setSelected(null)
+                setWizardFound(true)
             }
             else {
                 alert("YOU didnt find wizard")
