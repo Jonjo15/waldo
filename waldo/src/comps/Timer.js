@@ -5,11 +5,15 @@ const Timer = ({gameOver}) => {
     const [minutes, setMinutes] = useState("00");
     const [hours, setHours] = useState("0");
     const [timer, setTimer] = useState(null)
+    const [score, setScore] = useState(0)
     useEffect(() => {
         if(gameOver) {
             clearInterval(timer)
+            let result = +seconds + +minutes * 60 + +hours * 3600;
+            alert(result)
+            setScore(result)
         }
-    }, [gameOver, timer])
+    }, [gameOver, timer, hours, minutes, seconds])
     useEffect(() => {
         let time = setInterval(() => {
             if (+seconds < 9) {
