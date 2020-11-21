@@ -1,11 +1,11 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 // import useFirestore from "../hooks/useFirestore"
 // import {getValidDelta} from "../functions/getValidDelta"
 
 // import useFirestore from "../hooks/useFirestore"
 // import "../waldo/jpg"
 // import {projectStorage} from "../firebase/config.js"
-const ImageContainer = ({url}) => {
+const ImageContainer = ({url, waldoData, odlawData, wizardData, setWaldoFound, setOdlawFound, setWizardFound}) => {
     const [x, setX] = useState(null)
     const [y, setY] = useState(null)
     // const waldoCoords = useFirestore("Waldo")
@@ -30,12 +30,43 @@ const ImageContainer = ({url}) => {
     }
     const handleChange = (e) => {
         setSelected(e.target.value)
+        if (e.target.value === "Waldo") {
+            if(waldoData.delta.validXGuesses.includes(x) && waldoData.delta.validYGuesses.includes(y)) {
+                alert("YOU FOUND WALDO")
+            }
+            else {
+                alert("YOU didnt find waldo")
+            }
+        }
+        if (selected === "Odlaw") {
+            if(odlawData.delta.validXGuesses.includes(x) && odlawData.delta.validYGuesses.includes(y)) {
+                alert("YOU FOUND ODLAW")
+            }
+            else {
+                alert("YOU didnt find ODLAW")
+            }
+        }
+        if (selected === "Wizard") {
+            if(wizardData.delta.validXGuesses.includes(x) && wizardData.delta.validYGuesses.includes(y)) {
+                alert("YOU FOUND Wizard")
+            }
+            else {
+                alert("YOU didnt find wizard")
+            }
+        }
         // console.log(correctWaldo)
         // const coords = useFirestore("")
     }
     // useEffect(() => {
-    //     console.log(waldoCords.charData)
-    // })
+        // if (selected === "Waldo") {
+        //     if(waldoData.delta.validXGuesses.includes(x) && waldoData.delta.validYGuesses.includes(y)) {
+        //         alert("YOU FOUND WALDO")
+        //     }
+        //     else {
+        //         alert("YOU didnt find waldo")
+        //     }
+        // }
+    // }, [selected])
     // useEffect(() => {
     //     if (correctWaldo) {
     //         if (correctWaldo.X.includes(x) && correctWaldo.Y.includes(y)) {
@@ -53,10 +84,10 @@ const ImageContainer = ({url}) => {
             {x && y &&
              <div style={{top: y, left: x}} className="search-box">
                  <select className="select-char" onChange={handleChange}>
-                     <option disabled="disabled">Select character</option>
+                     <option disabled="disabled" selected="selected">Select character</option>
                      <option value="Waldo">Waldo</option>
                      <option value="Odlaw">Odlaw</option>
-                     <option value="Wenda">Wenda</option>
+                     {/* <option value="Wenda">Wenda</option> */}
                      <option value="Wizard">Wizard</option>
                  </select>
             </div>}
