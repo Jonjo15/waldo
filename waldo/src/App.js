@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {!url && <button onClick={start}>Start Game</button>}
+      {!url && <button id="startBtn" onClick={start}>Start Game</button>}
       {/* <ImageContainer url={url}/> */}
       {url && <ImageContainer gameOver={gameOver} waldoData={waldoData} odlawData={odlawData} wizardData={wizardData} setWaldoFound={setWaldoFound} setOdlawFound={setOdlawFound} setWizardFound={setWizardFound} url={url}/>}
       

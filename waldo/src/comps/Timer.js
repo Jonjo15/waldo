@@ -35,7 +35,7 @@ const Timer = ({gameOver}) => {
             
         }, 1000)
         setTimer(time);
-        return () => clearInterval(timer)
+        return () => clearInterval(time)
     }, [seconds, minutes, hours])
     return (
         <div className="timer">

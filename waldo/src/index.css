@@ -4,6 +4,7 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   box-sizing: border-box;
+  background-color: tomato;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -55,6 +56,12 @@ code {
 }
 .timer {
   position: absolute;
-  top: 30px;
-  left: 30px;
+  top: 5px;
+  left: 50px;
+  font-size: 2rem;
+}
+#startBtn {
+  position: absolute;
+  top: 10%;
+  left: 47.5%;
 }
