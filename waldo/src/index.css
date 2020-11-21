@@ -22,9 +22,10 @@ code {
 .odlaw,
 .wizard {
   position: absolute;
-  border: 3px solid black;
+  /* border: 3px solid black; */
   width: 70px;
   height: 70px;
+  border-radius: 50%;
 }
 .select-char {
   position: absolute;
@@ -37,12 +38,15 @@ code {
 .waldo {
   left: 758px;
   top: 387px;
+  border: 3px solid red;
 }
 .odlaw {
-  left: 482px;
+  left: 483px;
   top: 390px;
+  border: 3px solid yellow;
 }
 .wizard {
-  left: 852px;
+  left: 853px;
   top: 383px;
+  border: 3px solid blue;
 }
