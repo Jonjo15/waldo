@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import Timer from "./Timer"
 // import useFirestore from "../hooks/useFirestore"
 // import {getValidDelta} from "../functions/getValidDelta"
 
@@ -97,6 +98,7 @@ const ImageContainer = ({url, waldoData, odlawData, wizardData, setWaldoFound, s
     // }, [waldoCoords])
     return (
         <div className="image-container" >
+            <Timer />
             {url && <img onClick={handleClick} src={url}alt="find waldo"/>}
             {x && y &&
              <div style={{top: y, left: x}} className="search-box">
@@ -108,7 +110,8 @@ const ImageContainer = ({url, waldoData, odlawData, wizardData, setWaldoFound, s
                      <option value="Wizard">Wizard</option>
                  </select>
             </div>}
-            <p>{selected}</p>
+            {/* <p>{selected}</p> */}
+            
         </div>
     )
 }

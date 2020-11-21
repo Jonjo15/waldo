@@ -1,8 +1,9 @@
 import {imageRef} from "./firebase/config.js"
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import Header from "./comps/Header"
 import ImageContainer from "./comps/ImageContainer"
 import useFirestore from "./hooks/useFirestore"
+import GameOver from "./comps/GameOver.js"
 function App() {
   const [url, setUrl] = useState(null)
   const [waldoFound, setWaldoFound] = useState(false)
@@ -11,6 +12,7 @@ function App() {
   const waldoData = useFirestore("Waldo")
   const odlawData = useFirestore("Odlaw")
   const wizardData = useFirestore("Wizard")
+  const [gameOver, setGameOver] = useState(false);
   // const [clicked, setClicked] = useState(null)
   const start = async(e) => {
     await imageRef.getDownloadURL().then(function(url) {
@@ -18,6 +20,14 @@ function App() {
     })
     // console.log(url)
   }
+  useEffect(() => {
+    if (waldoFound && odlawFound && wizardFound) {
+      setGameOver(true)
+      // setOdlawFound(false)
+      // setWaldoFound(false)
+      // setWizardFound(false)
+    }
+  }, [waldoFound, odlawFound, wizardFound])
   // const handleClick = (e) => {
   //   if (clicked) {
   //     setClicked(null)
@@ -36,6 +46,7 @@ function App() {
       {waldoFound && <div className="waldo"></div> }
       {odlawFound && <div className="odlaw"></div> }
       {wizardFound && <div className="wizard"></div> }
+      {gameOver && <GameOver />}
       {/* <p>{waldo.charData.X}</p> */}
       {/* <p>{waldo.charData.Y}</p> */}
       {/* <p>{waldo.delta.validXGuesses}</p> */}
