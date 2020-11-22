@@ -9,6 +9,7 @@ import Timer from "./Timer"
 const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWaldoFound, setOdlawFound, setWizardFound}) => {
     const [x, setX] = useState(null)
     const [y, setY] = useState(null)
+    // const [showLeaderBoard] = useState(false)
     // const waldoCoords = useFirestore("Waldo")
     // const [correctWaldo, setCorrectWaldo] = useState(null)
     const [clicked, setClicked] = useState(null)
@@ -20,9 +21,12 @@ const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWal
             // setSelected(null)
     }
     const handleClick = (e) => {
+        if (gameOver) {
+            return
+        }
         // if (e.target.getBoundingClientRect())
         if (clicked) {
-            
+            cleanUp()
         }
         else {
             setX(e.pageX -35)
