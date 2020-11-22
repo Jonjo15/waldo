@@ -11,15 +11,22 @@ const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWal
     const [x, setX] = useState(null)
     const [y, setY] = useState(null)
     const [score, setScore] = useState(null)
+    const [output, setOutput] = useState("")
     // const [showLeaderBoard] = useState(false)
     // const waldoCoords = useFirestore("Waldo")
     // const [correctWaldo, setCorrectWaldo] = useState(null)
     const [clicked, setClicked] = useState(null)
     // const [selected, setSelected] = useState(null)
+    const resetOutPut = () => {
+        setTimeout(() => {
+            setOutput("")
+        }, 1000)
+    }
     const cleanUp = () => {
             setX(null)
             setY(null)
             setClicked(null)
+            resetOutPut()
             // setSelected(null)
     }
     const handleClick = (e) => {
@@ -43,67 +50,48 @@ const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWal
         // setSelected(e.target.value)
         if (e.target.value === "Waldo") {
             if(waldoData.delta.validXGuesses.includes(x) && waldoData.delta.validYGuesses.includes(y)) {
-                
-                alert("YOU FOUND WALDO")
-                cleanUp()
                 setWaldoFound(true)
+                setOutput("You found Waldo!")
+                cleanUp()
+                
             }
             else {
-                alert("YOU didnt find waldo")
+                setOutput("That's not Waldo!")
                 cleanUp()
             }
         }
         if (e.target.value === "Odlaw") {
             if(odlawData.delta.validXGuesses.includes(x) && odlawData.delta.validYGuesses.includes(y)) {
 
-                alert("YOU FOUND ODLAW")
+                setOutput("You found Odlaw!")
                 cleanUp()
                 setOdlawFound(true)
             }
             else {
-                alert("YOU didnt find ODLAW")
+                setOutput("That's not Odlaw!")
                 cleanUp()
             }
         }
         if (e.target.value === "Wizard") {
             if(wizardData.delta.validXGuesses.includes(x) && wizardData.delta.validYGuesses.includes(y)) {
-                alert("YOU FOUND Wizard")
+                setOutput("You found Wizard!")
                 cleanUp()
                 setWizardFound(true)
             }
             else {
+                setOutput("That's not Wizard!")
                 cleanUp()
-                alert("YOU didnt find wizard")
+                
             }
         }
         // console.log(correctWaldo)
         // const coords = useFirestore("")
     }
-    // useEffect(() => {
-        // if (selected === "Waldo") {
-        //     if(waldoData.delta.validXGuesses.includes(x) && waldoData.delta.validYGuesses.includes(y)) {
-        //         alert("YOU FOUND WALDO")
-        //     }
-        //     else {
-        //         alert("YOU didnt find waldo")
-        //     }
-        // }
-    // }, [selected])
-    // useEffect(() => {
-    //     if (correctWaldo) {
-    //         if (correctWaldo.X.includes(x) && correctWaldo.Y.includes(y)) {
-    //         console.log("success")
-    //     }
-    //     }
-        
-    // }, [selected, correctWaldo.X, correctWaldo.Y, x, y])
-    // useEffect(() => {
-    //     setCorrectWaldo(getValidDelta(waldoCoords))
-    // }, [waldoCoords])
+    
     return (
         <div className="image-container" >
             <Timer gameOver={gameOver} setScore={setScore}/>
-            {url && <img onClick={handleClick} src={url}alt="find waldo"/>}
+            {!gameOver && url && <img onClick={handleClick} src={url}alt="find waldo"/>}
             {x && y &&
              <div style={{top: y, left: x}} className="search-box">
                  <select className="select-char" defaultValue="select" onChange={handleChange}>
@@ -114,6 +102,7 @@ const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWal
                      <option value="Wizard">Wizard</option>
                  </select>
             </div>}
+            <div>{output}</div>
             {score && <UploadForm score={score} setScore={setScore}/>}
             {/* <p>{selected}</p> */}
             
