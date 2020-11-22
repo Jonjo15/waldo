@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-
-const UploadForm = () => {
+import {addToLeaderBoard} from "../functions/addToLeaderBoard"
+const UploadForm = ({score, setScore}) => {
     const [name, setName] = useState("")
     const handleChange = (e) => {
         let name = e.target.value
@@ -8,6 +8,8 @@ const UploadForm = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
+        addToLeaderBoard(name, score)
+        setScore(null)
         console.log("submitted")
     }
     return (

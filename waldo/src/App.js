@@ -6,6 +6,7 @@ import useFirestore from "./hooks/useFirestore"
 import GameOver from "./comps/GameOver.js"
 // import {addToLeaderBoard} from "./functions/addToLeaderBoard"
 import ShowFoundChars from "./comps/ShowFoundChars.js"
+// import UploadForm from "./comps/UploadForm.js"
 function App() {
   const [url, setUrl] = useState(null)
   const [waldoFound, setWaldoFound] = useState(false)
@@ -38,6 +39,7 @@ function App() {
       {url && <ImageContainer gameOver={gameOver} waldoData={waldoData} odlawData={odlawData} wizardData={wizardData} setWaldoFound={setWaldoFound} setOdlawFound={setOdlawFound} setWizardFound={setWizardFound} url={url}/>}
       <ShowFoundChars waldoFound={waldoFound} odlawFound={odlawFound} wizardFound={wizardFound} />
       {gameOver && <GameOver />}
+      {/* {gameOver && <UploadForm />} */}
     </div>
   );
 }

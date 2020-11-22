@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import Timer from "./Timer"
+import UploadForm from "./UploadForm"
 // import useFirestore from "../hooks/useFirestore"
 // import {getValidDelta} from "../functions/getValidDelta"
 
@@ -9,6 +10,7 @@ import Timer from "./Timer"
 const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWaldoFound, setOdlawFound, setWizardFound}) => {
     const [x, setX] = useState(null)
     const [y, setY] = useState(null)
+    const [score, setScore] = useState(null)
     // const [showLeaderBoard] = useState(false)
     // const waldoCoords = useFirestore("Waldo")
     // const [correctWaldo, setCorrectWaldo] = useState(null)
@@ -100,7 +102,7 @@ const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWal
     // }, [waldoCoords])
     return (
         <div className="image-container" >
-            <Timer gameOver={gameOver} />
+            <Timer gameOver={gameOver} setScore={setScore}/>
             {url && <img onClick={handleClick} src={url}alt="find waldo"/>}
             {x && y &&
              <div style={{top: y, left: x}} className="search-box">
@@ -112,6 +114,7 @@ const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWal
                      <option value="Wizard">Wizard</option>
                  </select>
             </div>}
+            {score && <UploadForm score={score} setScore={setScore}/>}
             {/* <p>{selected}</p> */}
             
         </div>

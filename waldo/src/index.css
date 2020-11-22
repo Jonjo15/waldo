@@ -66,6 +66,8 @@ code {
   left: 47.5%;
 }
 form {
+  /* height: 300px;
+  width: 300px; */
   position: absolute;
   top: 50%;
   left: 40%;
