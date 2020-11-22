@@ -25,9 +25,12 @@ function App() {
   useEffect(() => {
     if (waldoFound && odlawFound && wizardFound) {
       setGameOver(true)
-      // setOdlawFound(false)
-      // setWaldoFound(false)
-      // setWizardFound(false)
+      setTimeout(() => {
+          setOdlawFound(false)
+          setWaldoFound(false)
+          setWizardFound(false)
+      }, 1500)
+     
     }
   }, [waldoFound, odlawFound, wizardFound])
   

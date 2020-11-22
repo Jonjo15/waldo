@@ -8,7 +8,7 @@ const UploadForm = ({score, setScore}) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        addToLeaderBoard(name, score)
+        addToLeaderBoard(name || "anon", score)
         setScore(null)
         console.log("submitted")
     }
