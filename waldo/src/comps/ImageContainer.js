@@ -12,12 +12,12 @@ const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWal
     // const waldoCoords = useFirestore("Waldo")
     // const [correctWaldo, setCorrectWaldo] = useState(null)
     const [clicked, setClicked] = useState(null)
-    const [selected, setSelected] = useState(null)
+    // const [selected, setSelected] = useState(null)
     const cleanUp = () => {
             setX(null)
             setY(null)
             setClicked(null)
-            setSelected(null)
+            // setSelected(null)
     }
     const handleClick = (e) => {
         // if (e.target.getBoundingClientRect())
@@ -34,7 +34,7 @@ const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWal
        
     }
     const handleChange = (e) => {
-        setSelected(e.target.value)
+        // setSelected(e.target.value)
         if (e.target.value === "Waldo") {
             if(waldoData.delta.validXGuesses.includes(x) && waldoData.delta.validYGuesses.includes(y)) {
                 

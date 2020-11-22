@@ -4,6 +4,7 @@ import Header from "./comps/Header"
 import ImageContainer from "./comps/ImageContainer"
 import useFirestore from "./hooks/useFirestore"
 import GameOver from "./comps/GameOver.js"
+import {addToLeaderBoard} from "./functions/addToLeaderBoard"
 function App() {
   const [url, setUrl] = useState(null)
   const [waldoFound, setWaldoFound] = useState(false)
@@ -50,6 +51,7 @@ function App() {
       {/* <p>{waldo.charData.X}</p> */}
       {/* <p>{waldo.charData.Y}</p> */}
       {/* <p>{waldo.delta.validXGuesses}</p> */}
+      <button onClick={addToLeaderBoard("hello", 33)}>Test firebase</button>
     </div>
   );
 }

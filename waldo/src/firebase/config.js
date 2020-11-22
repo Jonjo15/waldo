@@ -25,9 +25,10 @@ var firebaseConfig = {
   const projectStorage = firebase.storage()
   const storageRef = projectStorage.ref()
   const imageRef = storageRef.child("wally.png")
+  const leaderBoardRef = projectFirestore.collection("leaderboard");
   // .getDownloadURL().then(function(url) {
   //   projectFirestore.collection("images").add({url})
   // })
 
 
-  export {projectFirestore, projectStorage, imageRef}
+  export {projectFirestore, projectStorage, imageRef, leaderBoardRef}
