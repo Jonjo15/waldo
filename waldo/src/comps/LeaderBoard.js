@@ -7,7 +7,8 @@ const LeaderBoard = () => {
     return (
         <div className="leareboard-container" >
             
-            {docs.map((ele,i) => <PlayerRecord key={i} name={ele.name} score={ele.score}/>)}
+            {docs.map((ele,i) => <PlayerRecord key={i} place={i+1} name={ele.name} score={ele.score}/>)}
+            <button className="play-again">Play Again!</button>
         </div>
     )
 }

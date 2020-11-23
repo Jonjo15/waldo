@@ -1,16 +1,16 @@
 import React, {useState} from "react"
 import Timer from "./Timer"
-import UploadForm from "./UploadForm"
+// import UploadForm from "./UploadForm"
 // import useFirestore from "../hooks/useFirestore"
 // import {getValidDelta} from "../functions/getValidDelta"
 
 // import useFirestore from "../hooks/useFirestore"
 // import "../waldo/jpg"
 // import {projectStorage} from "../firebase/config.js"
-const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWaldoFound, setOdlawFound, setWizardFound}) => {
+const ImageContainer = ({url, setScore, gameOver, waldoData, odlawData, wizardData, setWaldoFound, setOdlawFound, setWizardFound}) => {
     const [x, setX] = useState(null)
     const [y, setY] = useState(null)
-    const [score, setScore] = useState(null)
+    // const [score, setScore] = useState(null)
     const [output, setOutput] = useState("")
     // const [showLeaderBoard] = useState(false)
     // const waldoCoords = useFirestore("Waldo")
@@ -103,7 +103,7 @@ const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWal
                  </select>
             </div>}
             <div>{output}</div>
-            {score && <UploadForm score={score} setScore={setScore}/>}
+            {/* {score && <UploadForm score={score} setScore={setScore}/>} */}
             {/* <p>{selected}</p> */}
             
         </div>

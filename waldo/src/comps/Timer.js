@@ -10,7 +10,7 @@ const Timer = ({gameOver, setScore}) => {
         if(gameOver) {
             clearInterval(timer)
             let result = +seconds + +minutes * 60 + +hours * 3600;
-            alert(result)
+            // alert(result)
             setScore(result)
         }
     }, [gameOver, timer, hours, minutes, seconds, setScore])
