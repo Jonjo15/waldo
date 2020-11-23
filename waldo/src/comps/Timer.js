@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-const Timer = ({gameOver, setScore}) => {
+const Timer = ({gameOver, setScore, setShowTimer}) => {
     const [seconds, setSeconds] = useState("00");
     const [minutes, setMinutes] = useState("00");
     const [hours, setHours] = useState("0");
@@ -12,8 +12,9 @@ const Timer = ({gameOver, setScore}) => {
             let result = +seconds + +minutes * 60 + +hours * 3600;
             // alert(result)
             setScore(result)
+            setShowTimer(false)
         }
-    }, [gameOver, timer, hours, minutes, seconds, setScore])
+    }, [gameOver, timer, hours, minutes, seconds, setScore, setShowTimer])
     useEffect(() => {
         let time = setInterval(() => {
             if (+seconds < 9) {

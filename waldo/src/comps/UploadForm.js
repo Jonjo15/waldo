@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+// import { useEffect } from "react/cjs/react.production.min"
 import {addToLeaderBoard} from "../functions/addToLeaderBoard"
 const UploadForm = ({score, setScore, setShowLeaderBoard}) => {
     const [name, setName] = useState("")
@@ -6,10 +7,14 @@ const UploadForm = ({score, setScore, setShowLeaderBoard}) => {
         let name = e.target.value
         setName(name)
     }
+    // // useEffect(() => {
+    //     setShowTimer(false);
+    // }, [])
     const handleSubmit = (e) => {
         e.preventDefault()
         addToLeaderBoard(name || "anon", score)
         setScore(null)
+        // setShowTimer(false)
         setShowLeaderBoard(true)
         console.log("submitted")
     }

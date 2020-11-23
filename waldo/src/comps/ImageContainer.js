@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import Timer from "./Timer"
+// import Timer from "./Timer"
 // import UploadForm from "./UploadForm"
 // import useFirestore from "../hooks/useFirestore"
 // import {getValidDelta} from "../functions/getValidDelta"
@@ -7,7 +7,7 @@ import Timer from "./Timer"
 // import useFirestore from "../hooks/useFirestore"
 // import "../waldo/jpg"
 // import {projectStorage} from "../firebase/config.js"
-const ImageContainer = ({url, setScore, gameOver, waldoData, odlawData, wizardData, setWaldoFound, setOdlawFound, setWizardFound}) => {
+const ImageContainer = ({url, setScore,showTimer, gameOver, waldoData, odlawData, wizardData, setWaldoFound, setOdlawFound, setWizardFound}) => {
     const [x, setX] = useState(null)
     const [y, setY] = useState(null)
     // const [score, setScore] = useState(null)
@@ -90,7 +90,7 @@ const ImageContainer = ({url, setScore, gameOver, waldoData, odlawData, wizardDa
     
     return (
         <div className="image-container" >
-            <Timer gameOver={gameOver} setScore={setScore}/>
+            {/* {showTimer &&<Timer gameOver={gameOver} setScore={setScore}/>} */}
             {!gameOver && url && <img onClick={handleClick} src={url}alt="find waldo"/>}
             {x && y &&
              <div style={{top: y, left: x}} className="search-box">
