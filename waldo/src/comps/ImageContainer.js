@@ -102,7 +102,7 @@ const ImageContainer = ({url, setScore,showTimer, gameOver, waldoData, odlawData
                      <option value="Wizard">Wizard</option>
                  </select>
             </div>}
-            <div>{output}</div>
+            {!gameOver &&<div className="output">{output}</div>}
             {/* {score && <UploadForm score={score} setScore={setScore}/>} */}
             {/* <p>{selected}</p> */}
             

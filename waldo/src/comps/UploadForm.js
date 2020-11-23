@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 // import { useEffect } from "react/cjs/react.production.min"
 import {addToLeaderBoard} from "../functions/addToLeaderBoard"
-const UploadForm = ({score, setScore, setShowLeaderBoard}) => {
+const UploadForm = ({score, setScore, setShowLeaderBoard, setShowGame}) => {
     const [name, setName] = useState("")
     const handleChange = (e) => {
         let name = e.target.value
@@ -16,6 +16,7 @@ const UploadForm = ({score, setScore, setShowLeaderBoard}) => {
         setScore(null)
         // setShowTimer(false)
         setShowLeaderBoard(true)
+        setShowGame(false)
         console.log("submitted")
     }
     return (

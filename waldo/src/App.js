@@ -11,11 +11,16 @@ import LeaderBoard from "./comps/LeaderBoard";
 // import UploadForm from "./comps/UploadForm.js"
 function App() {
   const [showLeaderBoard, setShowLeaderBoard] = useState(false)
+  const [showGame, setShowGame] = useState(true)
+  const playAgain = () => {
+    setShowLeaderBoard(false)
+    setShowGame(true)
+  }
   return (
     <div className="App">
       <Header />
-      <Game setShowLeaderBoard={setShowLeaderBoard}/>
-      {showLeaderBoard && <LeaderBoard />}
+      {showGame && <Game setShowGame={setShowGame} setShowLeaderBoard={setShowLeaderBoard}/>}
+      {showLeaderBoard && <LeaderBoard playAgain={playAgain}/>}
       {/* {gameOver && <UploadForm />} */}
     </div>
   );

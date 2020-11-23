@@ -8,7 +8,7 @@ import useFirestore from "../hooks/useFirestore"
 import ShowFoundChars from "./ShowFoundChars.js"
 import UploadForm from "./UploadForm.js"
 import Timer from "./Timer"
-const Game = ({setShowLeaderBoard}) => {
+const Game = ({setShowLeaderBoard, setShowGame}) => {
   const [url, setUrl] = useState(null)
   const [waldoFound, setWaldoFound] = useState(false)
   const [odlawFound, setOdlawFound] = useState(false)
@@ -41,7 +41,7 @@ const Game = ({setShowLeaderBoard}) => {
             {url && <ImageContainer score={score} setScore={setScore} gameOver={gameOver} waldoData={waldoData} odlawData={odlawData} wizardData={wizardData} setWaldoFound={setWaldoFound} setOdlawFound={setOdlawFound} setWizardFound={setWizardFound} url={url}/>}
             {url && showTimer && <Timer setShowTimer={setShowTimer} gameOver={gameOver} setScore={setScore}/>}
             <ShowFoundChars waldoFound={waldoFound} odlawFound={odlawFound} wizardFound={wizardFound} />
-            {gameOver && score && <UploadForm setShowLeaderBoard={setShowLeaderBoard} setScore={setScore} score={score}/>}
+            {gameOver && score && <UploadForm setShowGame={setShowGame} setShowLeaderBoard={setShowLeaderBoard} setScore={setScore} score={score}/>}
         </>
     )
 }
