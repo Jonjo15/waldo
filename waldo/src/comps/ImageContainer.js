@@ -7,7 +7,7 @@ import React, {useState} from "react"
 // import useFirestore from "../hooks/useFirestore"
 // import "../waldo/jpg"
 // import {projectStorage} from "../firebase/config.js"
-const ImageContainer = ({url, setScore,showTimer, gameOver, waldoData, odlawData, wizardData, setWaldoFound, setOdlawFound, setWizardFound}) => {
+const ImageContainer = ({url, gameOver, waldoData, odlawData, wizardData, setWaldoFound, setOdlawFound, setWizardFound}) => {
     const [x, setX] = useState(null)
     const [y, setY] = useState(null)
     // const [score, setScore] = useState(null)
@@ -102,7 +102,7 @@ const ImageContainer = ({url, setScore,showTimer, gameOver, waldoData, odlawData
                      <option value="Wizard">Wizard</option>
                  </select>
             </div>}
-            {!gameOver &&<div className="output">{output}</div>}
+            {!gameOver && output && <div className="output">{output}</div>}
             {/* {score && <UploadForm score={score} setScore={setScore}/>} */}
             {/* <p>{selected}</p> */}
             
