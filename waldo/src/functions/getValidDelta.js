@@ -1,7 +1,7 @@
 export  const getValidDelta = (obj) => {
     let validXGuesses = [];
     let validYGuesses = []
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 25; i++) {
         validXGuesses.push(obj.X + i)
         validXGuesses.push(obj.X - i)
         validYGuesses.push(obj.Y + i)

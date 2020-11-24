@@ -6,7 +6,7 @@ const useLeaderBoard = () => {
     const [docs, setDocs] = useState([])
 
     useEffect(() => {
-        const unsub = leaderBoardRef.orderBy("score", "asc")
+        const unsub = leaderBoardRef.orderBy("score", "asc").limit(10)
         .onSnapshot(snap => {
             let document = []
             snap.forEach((doc) => {

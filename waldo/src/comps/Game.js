@@ -28,10 +28,13 @@ const Game = ({setShowLeaderBoard, setShowGame}) => {
   }
   useEffect(() => {
     if (waldoFound && odlawFound && wizardFound) {
-        setGameOver(true)
-        setOdlawFound(false)
-        setWaldoFound(false)
-        setWizardFound(false)
+        setTimeout(() => {
+            setGameOver(true)
+            setOdlawFound(false)
+            setWaldoFound(false)
+            setWizardFound(false)
+        }, 500)
+        
     }
   }, [waldoFound, odlawFound, wizardFound])
     return (
